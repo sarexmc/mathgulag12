@@ -30,10 +30,10 @@ public final class FirstPersonSkull {
             ps.mulPose(Axis.XP.rotationDegrees(-camera.getXRot()));
             ps.translate(0f, -0.214f, 0f);                                   // de los ojos al cuello
             ps.translate(0f, (0.5f + SkullLayer.LIFT) * 0.9375f, 0f);        // parte alta de la cabeza
-            ps.mulPose(Axis.YP.rotationDegrees(SkullLayer.YAW_OFFSET));
-            float sc = SkullLayer.SCALE * 0.9375f;
+            ps.mulPose(Axis.YP.rotationDegrees(SkullLayer.yaw));
+            float sc = SkullLayer.scale * 0.9375f;
             ps.scale(sc, sc, sc);
-            ps.translate(0f, -SkullLayer.DROP / 16f, 0f);
+            ps.translate(0f, -SkullLayer.drop / 16f, 0f);
             SkullModel.render(ps, consumers, LightTexture.FULL_BRIGHT, time);
             ps.popPose();
             if (consumers instanceof MultiBufferSource.BufferSource bs) bs.endBatch();
